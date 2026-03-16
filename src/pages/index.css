@@ -1,0 +1,295 @@
+html{
+    scroll-behavior: smooth;
+}
+.home img
+{
+    width: 25rem;
+}
+.home
+{
+    padding: 2rem;
+}
+.home2 
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 6rem;
+}
+
+.cards
+{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 3rem;
+    margin-top: -1rem;
+}
+
+@media (max-width: 1115px) {
+    .home img
+    {
+        width: 20rem;
+        height: 20rem;
+    }
+    .home2
+    {
+        height: 400px;
+    }
+    .home h1
+    {
+        font-size: 35px;
+    }
+    .home p
+    {
+        font-size: 14px;
+    }
+    .card
+    {
+        width: 15rem;
+    }
+    .card h5
+    {
+        font-size: 20px;
+    }
+    .card p
+    {
+        font-size: 15px;
+    }
+}
+@media (max-width: 800px) {
+    .home img
+    {
+        width: 17rem;
+        height: 17rem;
+    }
+    .home h1
+    {
+        font-size: 30px;
+    }
+    .home p
+    {
+        font-size: 12px;
+    }
+}
+@media (max-width: 650px) {
+    .card h5
+    {
+        font-size: 18px;
+    }
+    .card p
+    {
+        font-size: 12px;
+    }
+}
+@media (max-width: 575px) {
+    .home2
+    {
+        height: 30rem;
+        display: block;
+        text-align: center;
+    }
+    .home-button
+    {
+        justify-content: center !important;
+    }
+    .cards
+    {
+        display: block;
+        justify-items: center;
+    }
+    .card
+    {
+        width: 20rem;
+        margin-top: 20px;
+    }
+    .card h5
+    {
+        font-size: 25px;
+    }
+    .card p
+    {
+        font-size: 17px;
+    }
+}
+
+
+/* ===============================
+   Learn More Section
+================================ */
+
+.learn-section{
+    padding:100px 20px;
+    text-align:center;
+    max-width:1200px;
+    margin:auto;
+}
+
+
+/* Header */
+
+.learn-header{
+    max-width:700px;
+    margin:auto;
+    margin-bottom:60px;
+}
+
+.learn-header h2{
+    font-size:34px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.learn-header p{
+    font-size:18px;
+    line-height:1.7;
+    opacity:0.8;
+}
+
+
+/* Steps */
+
+.learn-steps{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    gap:40px;
+    flex-wrap:wrap;
+    margin-bottom:80px;
+}
+
+.step{
+    max-width:260px;
+    text-align:center;
+}
+
+.step h4{
+    margin-top:15px;
+    font-size:20px;
+    font-weight:600;
+}
+
+.step p{
+    font-size:15px;
+    opacity:0.8;
+    margin-top:8px;
+    line-height:1.6;
+}
+
+
+/* Icons */
+
+.icon{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:auto;
+}
+
+.icon i{
+    font-size:26px;
+    color:white;
+}
+
+
+/* AI Model Info */
+
+.ai-info{
+    margin-top:60px;
+}
+
+.ai-info h3{
+    font-size:28px;
+    margin-bottom:30px;
+}
+
+.ai-stats{
+    display:flex;
+    justify-content:center;
+    gap:50px;
+    flex-wrap:wrap;
+}
+
+.stat{
+    text-align:center;
+}
+
+.stat h4{
+    font-size:32px;
+    font-weight:bold;
+    color:#dc3545;
+}
+
+.stat p{
+    font-size:15px;
+    margin-top:5px;
+}
+
+
+/* Medical Warning */
+
+.medical-warning{
+    margin-top:70px;
+    padding:25px;
+    background-color:#ffc0c056 !important;
+    border-radius:10px;
+    max-width:800px;
+    margin-left:auto;
+    margin-right:auto;
+    /* color: rgb(41, 41, 41); */
+}
+
+.medical-warning h4{
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:20px;
+    /* color: #dc3545; */
+}
+
+.medical-warning p{
+    font-size:17px;
+    line-height:1.7;
+}
+
+
+/* ===============================
+   Responsive
+================================ */
+
+@media (max-width:768px){
+
+    .learn-header h2{
+        font-size:28px;
+    }
+
+    .learn-header p{
+        font-size:16px;
+    }
+
+    .learn-steps{
+        gap:30px;
+    }
+
+    .ai-stats{
+        gap:30px;
+    }
+
+}
+
+@media (max-width:480px){
+
+    .learn-section{
+        padding:70px 15px;
+    }
+
+    .learn-header h2{
+        font-size:24px;
+    }
+
+    .stat h4{
+        font-size:26px;
+    }
+
+}

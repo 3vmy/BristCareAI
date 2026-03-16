@@ -1,0 +1,22 @@
+/* :root {
+  --bg-color: #ffffff;
+  --navbar-bg: rgba(255, 255, 255, 0.8);
+  --text-color: #212529;
+  --primary-color: #e91e63;
+}
+
+[data-theme="dark"] {
+  --bg-color: #0f172a;
+  --navbar-bg: rgba(15, 23, 42, 0.8);
+  --text-color: #f1f5f9;
+  --primary-color: #e91e63;
+}
+
+body {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color);
+}
+.pbuttonlink
+{
+    background-color: var(--primary-color);
+} */

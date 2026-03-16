@@ -1,0 +1,213 @@
+:root {
+  --bg-color: #f1f5f9;
+  --navbar-bg: rgba(255, 255, 255, 0.8);
+  --text-color: #38393a;
+  --primary-color: #e91e63;
+  --nav-bg-color:#fdfdfd;
+  /* --nav-bg-color: linear-gradient(to right, #fdfdfd, #e0e0e0); */
+  --footer-bg:linear-gradient(135deg, #f8fafc, #e2e8f0);
+  --report-card-bg: #fafafa;
+  --report-h5-bg: #efefef;
+}
+
+[data-theme="dark"] {
+  --bg-color: #0f172a;
+  --navbar-bg: rgba(15, 23, 42, 0.8);
+  --text-color: #f1f5f9;
+  --primary-color: #e91e63;
+  /* --primary-color: linear-gradient(to right, #ff5a85, #e91e63, #c2185b); */
+  --nav-bg-color:#182647;
+  /* --nav-bg-color: linear-gradient(to right, #182647, #0f1a34); */
+  --footer-bg:linear-gradient(135deg, #0f172a, #1e293b);
+  --report-card-bg: #2a3459c4;
+  --report-h5-bg: #232a4b;
+}
+
+body {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color);
+  font-family: 'Poppins', 'Tajawal', sans-serif !important;
+}
+
+.pbuttonlink
+{
+  background-color: var(--primary-color) !important;
+}
+.pbuttonlink:hover
+{
+  background-color: #c81a54 !important;
+}
+.buttonLink
+{
+  background-color: #182647bf !important;
+}
+.nav-link
+{
+  /* background-color: var(--nav-bg-color); */
+  color: var(--text-color) !important;
+  width: fit-content;
+}
+.nav-link:hover
+{
+  color: var(--primary-color) !important;
+  /* border-bottom: 3px solid var(--primary-color); */
+}
+
+.nav-link.active
+{
+  color: var(--primary-color) !important;
+  border-bottom: 3px solid var(--primary-color);
+  font-weight: 600;
+}
+.foot-link.active
+{
+  color: var(--primary-color) !important;
+  font-weight: 600;
+}
+.navbar-toggler
+{
+  color: var(--text-color) !important;
+}
+.card,
+.login2,
+.diagnosis2
+{
+  background-color: var(--nav-bg-color) !important;
+  color: var(--text-color) !important;
+}
+.card i
+{
+  color:#fdfdfd;
+}
+.home,
+input
+{
+  color: var(--text-color);
+}
+.login2 label
+{
+  background-color: var(--nav-bg-color);
+}
+.home span,
+.footer span,
+.container h4 span
+{
+  color: var(--primary-color);
+}
+.footer
+{
+  background: var(--footer-bg);
+  color: var(--text-color) !important;
+}
+.footer ul li a
+{
+  color: var(--text-color);
+}
+/* @media (max-width: 575px)
+{
+  .collapse2
+  {
+
+  }
+} */
+.diagnosis2 input,
+.diagnosis2 select
+{
+  background-color: var(--nav-bg-color);
+  color: var(--text-color);
+}
+.diagnosis2 input:focus,
+.diagnosis2 select:focus
+{
+  background-color: var(--nav-bg-color);
+  border-color: var(--primary-color);
+  box-shadow: 0 2px 8px rgba(24, 24, 24, 0.2);
+}
+.contact-container
+{
+  background-color: var(--nav-bg-color);
+  color: var(--text-color);
+}
+/* report */
+/* ------------------------------------ */
+.report-card{
+background:var(--nav-bg-color);
+color: var(--text-color);
+}
+.card-section{
+ background-color: var(--report-card-bg);
+ color: var(--text-color);
+ border: 2px solid var(--report-h5-bg);
+}
+
+.card-section h5{
+background-color: var(--report-h5-bg);
+color: var(--text-color);
+}
+.img-section h5
+{
+background-color: var(--report-h5-bg);
+}
+.img-section img
+{
+  border: 3px solid var(--report-h5-bg);
+}
+/* ------------------------------------ */
+.alertt .toast-header
+{
+  color: var(--text-color);
+  background-color: var(--nav-bg-color);
+}
+.alertt .toast-body
+{
+  color: var(--text-color);
+  background-color: var(--nav-bg-color);
+  border-radius: 0px 0px 5px 5px !important;
+}
+.contact-form input,
+.contact-form textarea
+{
+  padding: 10px 15px !important;
+  background-color: var(--nav-bg-color) !important;
+  color: var(--text-color) !important;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder
+{
+  color:#898989;
+}
+.settings-item{
+  background-color: var(--nav-bg-color);
+  color: var(--text-color);
+}
+.settings-page h2,
+.user-card
+{
+  color: var(--text-color);
+}
+.dropdown-menu
+{
+  background-color: var(--nav-bg-color) !important;
+  color: var(--text-color) !important;
+}
+.account-page,
+.privacy-page,
+.help-container
+{
+  color: var(--text-color);
+}
+.account-item,
+.privacy-section,
+.help-card,
+.modal-box
+{
+  background-color: var(--nav-bg-color);
+  color: var(--text-color);
+}
+.alert-box,
+.alert-box button,
+.modal-overlay,
+.modal-header button
+{
+  color: var(--text-color);
+}

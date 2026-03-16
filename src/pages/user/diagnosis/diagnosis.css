@@ -1,0 +1,106 @@
+.diagnosis {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+.diagnosis2 {
+  width: 95%;
+  max-width: 1100px;
+  margin-top: 6rem;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0px 5px 10px rgba(8,8,8,0.15);
+}
+
+/* select */
+
+.diagnosis2 select {
+  padding: 11px;
+}
+
+/* button */
+
+.submit-btn {
+  width: 80%;
+  max-width: 400px;
+}
+
+/* mobile */
+
+@media (max-width: 768px) {
+
+  .diagnosis
+  {
+    padding: 30px;
+  }
+  .diagnosis2 {
+    margin-top: 3rem;
+    padding: 15px;
+  }
+
+  .mamogram {
+    margin-bottom: 20px;
+  }
+
+  .submit-btn {
+    width: 100%;
+  }
+
+}
+
+/* Drop Zone */
+
+.drop-zone {
+  border: 2px dashed #bdbdbd;
+  border-radius: 10px;
+  padding: 40px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s;
+  /* background: #fafafa; */
+}
+
+.drop-zone:hover {
+  background: #f3f3f39a;
+}
+
+.drop-zone.active {
+  border-color: #e91e63;
+  background: #f3f3f39a;
+}
+
+.drop-zone p {
+  margin: 0;
+  font-weight: 500;
+  color: #555;
+}
+
+/* hide real input */
+
+.file-input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* image preview */
+
+.image-preview img {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.loading-overlay{
+position: fixed;
+inset: 0;
+background: rgba(0,0,0,0.6);
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 9999;
+}

@@ -1,0 +1,226 @@
+.report-card{
+width: 100%;
+max-width: 900px;
+margin:auto;
+justify-self: center;
+border-radius:15px;
+padding:35px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+.img-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 5px;
+}
+.img-container img{
+    width: 8rem;
+}
+
+.card-section{
+padding-bottom:20px;
+border-radius:10px;
+}
+
+.card-section h5,
+.img-section h5
+{
+font-size: large;
+margin-bottom:0px;
+font-weight:600;
+padding: 10px;
+border-radius:10px 10px 0 0;
+}
+.card-section .row
+{
+    padding: 15px 15px 0px 15px;
+}
+
+.clinical-list{
+list-style:none;
+padding: 0px 15px 0px 15px;
+margin-top: 6px;
+}
+
+.clinical-list li{
+padding:11px 0;
+border-bottom:1px solid #eee;
+}
+.img-section h5
+{
+margin-bottom:0px;
+}
+
+.mammo-container{
+  width:100%;
+  max-height:255px;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.mammo-img{
+  border-radius: 0 0 10px 10px;
+  max-width:100%;
+  max-height:400px;
+  object-fit:contain;
+}
+
+.diagnosis-box{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* على الشاشات الصغيرة */
+  gap: 30px;
+  padding: 20px;
+}
+
+
+.diagnosis-text{
+flex:1;
+}
+
+.doctor-box{
+  padding:20px;
+  border-radius:10px;
+}
+.doctor-box2
+{
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.doctor-box3
+{
+    display: flex;
+}
+.doctor-img{
+width:70px;
+height:70px;
+border-radius:50%;
+}
+
+.report-actions{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.buttons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+
+.report-footer{
+border-top:1px solid #eee;
+padding-top:20px;
+font-size:14px;
+color:#a0a0a0;
+}
+
+.footer-item{
+display:flex;
+align-items:center;
+gap:10px;
+justify-content:center;
+margin-bottom:10px;
+}
+
+.footer-item i{
+color:#ff5c8d;
+font-size:16px;
+}
+
+.footer-item p{
+margin:0;
+}
+
+.footer-website a{
+text-decoration:none;
+color:#a0a0a0;
+font-weight:500;
+}
+
+.footer-website i{
+color:#ff5c8d;
+}
+@media (max-width:992px){
+    .clinical{
+        margin-bottom: 25px;
+    }
+}
+@media (max-width:768px){
+
+.report-card{
+padding:20px;
+}
+
+.foot-title
+{
+    text-align: center;
+}
+
+}
+@media (max-width:550px){
+    .doctor-box2
+    {
+        display: block !important;
+        text-align: center;
+        justify-items: center;
+    }
+    .report-card h2
+    {
+        font-size:large;
+    }
+    .report-card .report_info
+    {
+        font-size: 10px;
+    }
+    .report-card
+    {
+        font-size: small;
+    }
+    .img-container img
+    {
+        width: 5rem;
+    }
+    .report-actions{
+    flex-direction:column;
+    text-align:center;
+    gap:20px;
+    }
+
+    .buttons{
+    justify-content:center;
+    }
+}
+@media (max-width:500px){
+.diagnosis-box{
+    display: block;
+    justify-items: center;
+}
+.risk-circle
+{
+    margin-bottom: 15px;
+}
+.diagnosis-box, .doctor-box2{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+@media print {
+
+  .report-actions {
+    display: none;
+  }
+
+  .back-btn {
+    display: none;
+  }
+
+}
