@@ -60,29 +60,33 @@ html[dir="ltr"] .bot {
 
 /* إدخال الرسائل */
 .chat-input {
-  position: fixed;       /* يثبت الحقل أسفل الصفحة */
-  bottom: 0;             /* أسفل الشاشة */
-  left: 50%;             /* لتحريك المنتصف أفقياً */
-  transform: translateX(-50%); /* ضبط المنتصف تماماً */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  padding: 12px 20px;
-  width: 100%;           /* أو يمكنك تحديد max-width */
-  max-width: 900px;      /* إذا تريدها محدودة في العرض */
-  z-index: 100;          /* للتأكد أن الحقل فوق كل شيء */
+
+  padding: 10px 15px;
+  padding-bottom: calc(10px + env(safe-area-inset-bottom));
+
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
+
+  z-index: 100;
 }
 
 .chat-input input {
   flex: 1;
   font-size: 18px;
-  max-width: 600px;      /* حجم الحقل */
-  padding: 8px 30px;
+  padding: 8px 20px;
   border-radius: 30px;
-  border: 1px solid #ccc;
   outline: none;
-  background: rgba(255, 255, 255, 0.167);
+  background: rgba(255,255,255,0.17);
   backdrop-filter: blur(20px);
   border:1px solid rgba(255,255,255,0.25);
   box-shadow:0 10px 40px rgba(0,0,0,0.15);
@@ -95,7 +99,6 @@ html[dir="ltr"] .bot {
   color: white;
   border-radius: 30px;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 .chat-input button:hover {
@@ -116,4 +119,18 @@ html[dir="ltr"] .bot {
   .chat-box {
     padding: 6rem 6% !important;
   }
+}
+
+@media (max-width: 576px) {
+
+  .chat-input {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .chat-input input {
+    font-size: 16px;
+    padding: 8px 15px;
+  }
+
 }

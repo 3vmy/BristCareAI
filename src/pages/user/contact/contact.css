@@ -1,5 +1,5 @@
 .contact{
-padding:80px 20px;
+padding:60px 0px;
 display:flex;
 justify-content:center;
 }
@@ -10,7 +10,7 @@ max-width:1000px;
 border-radius:15px;
 padding:40px;
 box-shadow:0 10px 30px rgba(0,0,0,0.1);
-margin-top: 2rem;
+margin-top: 4rem;
 }
 
 .contact-info{
@@ -64,6 +64,7 @@ background:#c92d39;
 {
     .contact-container{
         padding: 20px;
+        margin-top: 1.5rem ;
     }
     .contact-info img{
         max-width: 250px;

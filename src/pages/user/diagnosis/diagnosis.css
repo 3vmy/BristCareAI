@@ -35,11 +35,11 @@
     padding: 30px;
   }
   .diagnosis2 {
-    margin-top: 3rem;
+    margin-top: 4rem;
     padding: 15px;
   }
 
-  .mamogram {
+  .mamogram{
     margin-bottom: 20px;
   }
 
@@ -48,7 +48,16 @@
   }
 
 }
+@media (max-width: 576px) {
 
+  .diagnosis
+  {
+    padding: 10px;
+  }
+  .diagnosis2{
+    margin-top: 5rem;
+  }
+}
 /* Drop Zone */
 
 .drop-zone {
