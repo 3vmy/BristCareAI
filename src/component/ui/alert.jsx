@@ -4,7 +4,6 @@ import { LanguageContext } from "../../context/LanguageContext";
 import { useAuth } from "../../pages/auth/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-
 export default function Alert({ message, show, setShow }) {
   const { t } = useContext(LanguageContext);
   const [hide, setHide] = useState(false);
@@ -22,6 +21,10 @@ export default function Alert({ message, show, setShow }) {
   }, [show]);
 
   if (!show) return null;
+
+  const handleAnimationEnd = () => {
+  if (hide) setShow(false);
+  };
 
   return (
     <div
