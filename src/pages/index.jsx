@@ -16,7 +16,6 @@ export default function Home()
                 <div className="text">
                     <h1 className="fw-bold">{t("home.title")} <br /> {t("home.title2")} <span>{t("home.Ai")}</span></h1>
                     <p>{t("home.p")}</p>
-                    <h1>TEST DEPLOY</h1>
                     <div className="home-button d-flex gap-2">
                         <PButtonLink title={t("home.start_button")} link="/diagnosis"/>
                         <ButtonLink title={t("home.learn_button")}  link="#learn-more"/>
