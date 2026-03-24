@@ -27,6 +27,33 @@ export default function Diagnosis() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  const checkImageWithAPI = async (imageFile) => {
+  try {
+    // تحويل الصورة ل base64
+    const reader = new FileReader();
+    return new Promise((resolve, reject) => {
+      reader.onloadend = async () => {
+        const base64data = reader.result.split(",")[1]; // إزالة الجزء "data:image/...;base64,"
+
+        // استدعاء API الخاص بنموذجك
+          const response = await fetch("https://huggingface.co/spaces/3vmy/image_classification_api/api/predict", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ data: [base64data] }),
+        });
+
+        const result = await response.json();
+        // مثال النتيجة: result.data[0] = "Mammogram" أو "Other"
+        resolve(result.data[0]);
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(imageFile);
+    });
+    } catch (err) {
+      console.error(err);
+      return null;
+    }
+  };
   const handleFile = (file) => {
     if (file && file.type.startsWith("image/")) {
       const imageUrl = URL.createObjectURL(file);
@@ -65,7 +92,7 @@ export default function Diagnosis() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!loggedEmail) {
@@ -90,17 +117,31 @@ export default function Diagnosis() {
       setShowToast(true);
       return;
     }
-    
-    const data = {
-      name,
-      age,
-      medical,
-      pain,
-      tumor,
-      image,
-    };
+    setLoading(true);
 
-    console.log(data);
+    // استدعاء API لفحص الصورة
+    const fileInput = document.querySelector('input[type="file"]');
+    const imageFile = fileInput.files[0];
+
+    const prediction = await checkImageWithAPI(imageFile);
+
+    if (!prediction) {
+      setToastMessage("Error checking image");
+      setShowToast(true);
+      setLoading(false);
+      return;
+    }
+
+    if (prediction !== "Mammogram") {
+      setToastMessage("الصورة ليست صورة ماموجرام صالحة!");
+      setShowToast(true);
+      setLoading(false);
+      return;
+    }
+
+    // البيانات جاهزة للتنقل
+    const data = { name, age, medical, pain, tumor, image };
+    navigate("/result", { state: data });
 
     setLoading(true);
 
