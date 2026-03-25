@@ -3,11 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { LanguageProvider } from "./context/LanguageContext.jsx";
 import { ThemeProvider } from "./context/ThemeContext.jsx";
 import { AuthProvider } from "./pages/auth/AuthContext"; 
-
-// git add .
-// git commit -m "Update diagnosis page with API integration"
-// git push origin main
-
+  
 import './main.css'
 import App from './App.jsx'
 

@@ -7,8 +7,10 @@ import Mamo from "../../../assets/images/MIT-Mirai-2-scaled.jpg";
 import Alert from "../../../component/ui/alert";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../auth/AuthContext";
+import { Client } from "@gradio/client"; // استيراد العميل الجديد
 
 export default function Diagnosis() {
+  const [rawFile, setRawFile] = useState(null);
   const { email: loggedEmail, login } = useAuth(); // استخدم اسم مختلف لتفادي التعارض
 
   const { t } = useContext(LanguageContext);
@@ -27,10 +29,36 @@ export default function Diagnosis() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  const analyzeImageWithAI = async (fileToTest) => {
+    try {
+      // استبدل هذا بالرابط الخاص بـ Space الخاص بك
+      const app = await Client.connect("3vmy/image_classification_api");
+      
+      // إرسال الصورة للدالة predict الموجودة في app.py
+      const result = await app.predict("/predict", { 
+        image: fileToTest, 
+      });
+
+      // النتيجة من Gradio تكون داخل result.data
+      // console.log("AI Prediction:", result.data[0]);
+      // return result.data[0]; // سيعيد "Mammogram" أو "Other"
+
+    } catch (error) {
+      console.error("Gradio Error:", error);
+      setToastMessage("Image Error:", error);
+      setShowToast(true);
+      return null;
+    }
+  };
+
   const handleFile = (file) => {
     if (file && file.type.startsWith("image/")) {
+      setRawFile(file); 
       const imageUrl = URL.createObjectURL(file);
       setImage(imageUrl);
+    } else {
+      setToastMessage("الرجاء اختيار ملف صورة صالح");
+      setShowToast(true);
     }
   };
 
@@ -56,16 +84,7 @@ export default function Diagnosis() {
     handleFile(file);
   };
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      setImage(imageUrl);
-    }
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
 
     if (!loggedEmail) {
@@ -73,7 +92,7 @@ export default function Diagnosis() {
     return;
     }
 
-    if (!image) {
+    if (!image || !rawFile) {
       setToastMessage(t("diagnosis.image_required"));
       setShowToast(true);
       return;
@@ -91,22 +110,25 @@ export default function Diagnosis() {
       return;
     }
     
-    const data = {
-      name,
-      age,
-      medical,
-      pain,
-      tumor,
-      image,
-    };
-
-    console.log(data);
-
     setLoading(true);
 
-  setTimeout(() => {
-    navigate("/result", { state: data });
-  }, 3000);
+    const prediction = await analyzeImageWithAI(rawFile);
+
+    if (prediction && prediction.toLowerCase().includes("mammogram")) {
+      // إذا نجح الفحص، ننتقل لصفحة النتائج مع البيانات
+      const data = { name, age, medical, pain, tumor, image };
+      
+      // ننتظر قليلاً ليعيش المستخدم تجربة "التحليل"
+      setTimeout(() => {
+        setLoading(false);
+        navigate("/result", { state: data });
+      }, 2000);
+    } else {
+      setLoading(false);
+      setToastMessage("الصورة المرفوعة لا يبدو أنها صورة ماموجرام صالحة!");
+      setShowToast(true);
+    }
+    
   };
 
   return (
@@ -215,7 +237,7 @@ export default function Diagnosis() {
                     className="pbuttonlink btn pt-2 pb-2 submit-btn"
                     type="submit"
                   >
-                    {t("diagnosis.submit")}
+                    {loading ? "جاري التحليل..." : t("diagnosis.submit")}
                   </button>
                 </div>
 
