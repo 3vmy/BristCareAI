@@ -41,10 +41,8 @@ export default function Diagnosis() {
 
       // النتيجة من Gradio تكون داخل result.data
       // console.log("AI Prediction:", result.data[0]);
-      // return result.data[0]; // سيعيد "Mammogram" أو "Other"
-
+      return result.data[0]; // سيعيد "Mammogram" أو "Other"
     } catch (error) {
-      console.error("Gradio Error:", error);
       setToastMessage("Image Error:", error);
       setShowToast(true);
       return null;
