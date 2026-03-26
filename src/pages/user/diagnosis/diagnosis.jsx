@@ -120,7 +120,7 @@ export default function Diagnosis() {
       setTimeout(() => {
         setLoading(false);
         navigate("/result", { state: data });
-      }, 2000);
+      }, 100);
     } else {
       setLoading(false);
       setToastMessage("الصورة المرفوعة لا يبدو أنها صورة ماموجرام صالحة!");

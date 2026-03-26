@@ -134,3 +134,24 @@ html[dir="ltr"] .bot {
   }
 
 }
+
+
+/* مؤشر التحميل */
+.message.bot.typing {
+  background: transparent;
+  color: #ce2d82;
+  font-weight: bold;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+/* تعطيل الحقل أثناء الرفع */
+input:disabled {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}
